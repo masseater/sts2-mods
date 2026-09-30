@@ -15,6 +15,9 @@ $workspace = Join-Path $repoRoot "workshop\$ModName"
 $dst = Join-Path $workspace "content\$ModName"
 
 if (-not (Test-Path $workspace)) { throw "ワークスペースがありません: $workspace" }
+# アップローダは dependencies を数値として読むので、文字列だとアップロード時にパースで止まる
+$workshopConfig = Get-Content (Join-Path $workspace "workshop.json") -Raw | ConvertFrom-Json
+if (@($workshopConfig.dependencies | Where-Object { $_ -is [string] }).Count -gt 0) { throw "workshop.json の dependencies は数値で書いてください (例: [3737335127])" }
 if (-not (Test-Path $src)) { throw "Mod が見つかりません: $src (先に dotnet publish してください)" }
 
 $manifest = Get-Content (Join-Path $src "$ModName.json") -Raw | ConvertFrom-Json

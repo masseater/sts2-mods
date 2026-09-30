@@ -7,7 +7,7 @@ Mega Crit 公式の [sts2-mod-uploader](https://github.com/megacrit/sts2-mod-upl
 1. sts2-mod-uploader を取得する(リリースの `ModUploader-<OS>.zip`。`win-x64` / `osx-arm64` / `osx-x64` / `linux-x64` がある。またはソースを clone して `dotnet publish -c Release -r <OS>`)
 2. `workshop/<ModName>/workshop.json` を編集する(各項目の意味は [workshop-json-reference.md](workshop-json-reference.md))
    - `title` / `description` / `tags`
-   - `dependencies`: 依存するワークショップアイテムの ID。BaseLib (`3737335127`) は設定済み
+   - `dependencies`: 依存するワークショップアイテムの ID を数値で書く(`[3737335127]`。`["3737335127"]` と文字列にするとアップローダが "Exception thrown while parsing the workshop config!" で止まる)。BaseLib は設定済み
    - `visibility`: 最初は `"private"` のままにしておく
 3. `workshop/<ModName>/image.png` を自作のサムネイル(1MB 未満)に差し替える
 
