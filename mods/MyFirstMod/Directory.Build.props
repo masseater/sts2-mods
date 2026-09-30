@@ -1,0 +1,9 @@
+<Project>
+    <!-- PC ごとのパス (GodotPath / Sts2Path) はリポジトリ直下の local.props に書く。local.props.example を参照 -->
+    <Import Project="$(MSBuildThisFileDirectory)../../local.props" Condition="Exists('$(MSBuildThisFileDirectory)../../local.props')" />
+
+    <PropertyGroup>
+        <!-- local.props が無い場合の既定値 (Windows に MegaDot を C:/megadot へ展開した想定) -->
+        <GodotPath Condition="'$(GodotPath)' == ''">C:/megadot/MegaDot_v4.5.1-stable_mono_win64.exe</GodotPath>
+    </PropertyGroup>
+</Project>
