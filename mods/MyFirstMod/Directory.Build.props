@@ -3,7 +3,10 @@
     <Import Project="$(MSBuildThisFileDirectory)../../local.props" Condition="Exists('$(MSBuildThisFileDirectory)../../local.props')" />
 
     <PropertyGroup>
-        <!-- local.props が無い場合の既定値 (Windows に MegaDot を C:/megadot へ展開した想定) -->
+        <!-- local.props が無い場合の既定値 -->
+        <!-- Mac: 公式インストーラ (https://megadot.megacrit.com/install.sh) の既定の入れ先 -->
+        <GodotPath Condition="'$(GodotPath)' == '' and $([MSBuild]::IsOSPlatform('OSX'))">$(HOME)/Applications/MegaDot.app/Contents/MacOS/Godot</GodotPath>
+        <!-- Windows: MegaDot を C:/megadot へ展開した想定 -->
         <GodotPath Condition="'$(GodotPath)' == ''">C:/megadot/MegaDot_v4.5.1-stable_mono_win64.exe</GodotPath>
     </PropertyGroup>
 </Project>

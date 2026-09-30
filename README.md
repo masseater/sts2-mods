@@ -17,18 +17,19 @@ sts2-mods/
   workshop/
     MyFirstMod/            公式アップローダ用ワークスペース (workshop.json, image.png, content/)
   scripts/
-    stage.ps1              Publish 済みファイルをワークスペースの content/ にコピー
+    stage.ps1              Publish 済みファイルをワークスペースの content/ にコピー (Windows)
+    stage.sh               同上 (Mac / Linux)
   docs/                    セットアップ・公開手順・新しい Mod の追加方法
   local.props.example      PC ごとのパス設定の見本 (local.props にコピーして使う)
 ```
 
 ## クイックスタート
 
-ゲームと Steam が入っている PC で行います。詳細は [docs/setup.md](docs/setup.md)。
+ゲームと Steam が入っている PC で行います。詳細は [docs/setup.md](docs/setup.md)、Mac は [docs/setup-mac.md](docs/setup-mac.md)。
 
-1. [.NET SDK 9.0 以上](https://dotnet.microsoft.com/download) と [MegaDot 4.5.1](https://megadot.megacrit.com/) を入れる
+1. [.NET SDK 9.0 以上](https://dotnet.microsoft.com/download) と [MegaDot 4.5.1](https://megadot.megacrit.com/) を入れる(Mac は `curl -fsSL https://megadot.megacrit.com/install.sh | sh`)
 2. Steam で [BaseLib](https://steamcommunity.com/sharedfiles/filedetails/?id=3737335127) をサブスクライブ
-3. `local.props.example` を `local.props` にコピーし、`GodotPath`(必要なら `Sts2Path`)を書き換える
+3. `local.props.example` を `local.props` にコピーし、`GodotPath`(必要なら `Sts2Path`)を書き換える(Mac で既定の場所に入れたなら不要)
 4. ビルドしてゲームに配置する
    ```
    cd mods/MyFirstMod
@@ -45,6 +46,10 @@ Mega Crit 公式の [sts2-mod-uploader](https://github.com/megacrit/sts2-mod-upl
 dotnet publish                                   # mods/MyFirstMod で
 .\scripts\stage.ps1 -ModName MyFirstMod          # リポジトリ直下で
 ModUploader.exe upload -w workshop\MyFirstMod
+
+# Mac / Linux
+scripts/stage.sh MyFirstMod
+./ModUploader upload -w workshop/MyFirstMod
 ```
 
 ## 新しい Mod を追加する

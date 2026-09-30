@@ -4,7 +4,7 @@ Mega Crit 公式の [sts2-mod-uploader](https://github.com/megacrit/sts2-mod-upl
 
 ## 準備(初回のみ)
 
-1. sts2-mod-uploader を取得する(リリースの実行ファイル、またはソースを clone して `dotnet build`)
+1. sts2-mod-uploader を取得する(リリースの `ModUploader-<OS>.zip`。`win-x64` / `osx-arm64` / `osx-x64` / `linux-x64` がある。またはソースを clone して `dotnet publish -c Release -r <OS>`)
 2. `workshop/<ModName>/workshop.json` を編集する(各項目の意味は [workshop-json-reference.md](workshop-json-reference.md))
    - `title` / `description` / `tags`
    - `dependencies`: 依存するワークショップアイテムの ID。BaseLib (`3737335127`) は設定済み
@@ -21,7 +21,9 @@ cd ../..
 <アップローダの場所>\ModUploader.exe upload -w workshop\MyFirstMod
 ```
 
-ワークショップには「Mod 名のフォルダごと」上げます(`content/MyFirstMod/MyFirstMod.json` など)。`stage.ps1` がその形に揃えます。
+Mac / Linux では `stage.ps1` の代わりに `scripts/stage.sh MyFirstMod`、アップローダは `ModUploader`(`.exe` なし)を使います。Mac の詳細は [setup-mac.md](setup-mac.md#5-ワークショップへのアップロードmac)。
+
+ワークショップには「Mod 名のフォルダごと」上げます(`content/MyFirstMod/MyFirstMod.json` など)。`stage.ps1` / `stage.sh` がその形に揃えます。
 
 初回アップロード後、ワークスペースに `mod_id.txt`(ワークショップ ID)ができます。**これはコミットしてください**。次回以降の更新先になります。
 
