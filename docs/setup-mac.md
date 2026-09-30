@@ -10,7 +10,7 @@ Slay the Spire 2 は Mac 版があり(Apple Silicon / Intel)、Mod もそのま�
 | --- | --- |
 | Steam + Slay the Spire 2 | https://store.steampowered.com/about/ から Mac 版 Steam を入れてログインし、ゲームをインストール |
 | BaseLib | Steam で https://steamcommunity.com/sharedfiles/filedetails/?id=3737335127 をサブスクライブ |
-| .NET SDK 9.0 以上 | https://dotnet.microsoft.com/download/dotnet/9.0 の macOS インストーラ(Apple Silicon は Arm64、Intel は x64) |
+| .NET SDK 9.0 以上 | https://dotnet.microsoft.com/download/dotnet/9.0 の macOS インストーラ(Apple Silicon は Arm64、Intel は x64)。管理者パスワード無しで入れるなら `curl -fsSL https://dot.net/v1/dotnet-install.sh \| bash -s -- --channel 9.0` で `~/.dotnet` に入れ、`DOTNET_ROOT=~/.dotnet` と PATH を設定する(Homebrew の `dotnet-sdk` cask は sudo が要り、版も 10 になる) |
 | MegaDot 4.5.1 | ターミナルで `curl -fsSL https://megadot.megacrit.com/install.sh \| sh`(聞かれたら両方 Enter) |
 
 MegaDot は既定で `~/Applications/MegaDot.app` に入ります。この場所ならビルド設定が自動で見つけるので `local.props` は不要です。
