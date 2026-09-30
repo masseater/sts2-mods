@@ -11,12 +11,12 @@
 
 ## 必要なもの
 
-| もの | 入手先 |
-| --- | --- |
-| .NET SDK 9.0 以上 | https://dotnet.microsoft.com/download |
-| MegaDot 4.5.1 (mono) | https://megadot.megacrit.com/(代わりに同じバージョンの Godot .NET でも可) |
-| BaseLib | Steam で https://steamcommunity.com/sharedfiles/filedetails/?id=3737335127 をサブスクライブ |
-| IDE | Rider 推奨。Visual Studio や VS Code + C# Dev Kit でも可 |
+| もの                 | 入手先                                                                                      |
+| -------------------- | ------------------------------------------------------------------------------------------- |
+| .NET SDK 9.0 以上    | https://dotnet.microsoft.com/download                                                       |
+| MegaDot 4.5.1 (mono) | https://megadot.megacrit.com/(代わりに同じバージョンの Godot .NET でも可)                   |
+| BaseLib              | Steam で https://steamcommunity.com/sharedfiles/filedetails/?id=3737335127 をサブスクライブ |
+| IDE                  | Rider 推奨。Visual Studio や VS Code + C# Dev Kit でも可                                    |
 
 ## パスの設定
 
@@ -44,13 +44,13 @@ dotnet publish   # 上記に加えて MegaDot で .pck を書き出す
 
 ## よくあるエラー
 
-| エラー | 対処 |
-| --- | --- |
-| `The SDK 'Godot.NET.Sdk/4.5.1' specified could not be found` | `dotnet nuget add source https://api.nuget.org/v3/index.json` |
-| `Slay the Spire 2 data not found at path ...` | `local.props` の `Sts2Path` を設定 |
-| `Godot path must be set up before publishing` | `local.props` の `GodotPath` を確認 |
+| エラー                                                                                                             | 対処                                                                            |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
+| `The SDK 'Godot.NET.Sdk/4.5.1' specified could not be found`                                                       | `dotnet nuget add source https://api.nuget.org/v3/index.json`                   |
+| `Slay the Spire 2 data not found at path ...`                                                                      | `local.props` の `Sts2Path` を設定                                              |
+| `Godot path must be set up before publishing`                                                                      | `local.props` の `GodotPath` を確認                                             |
 | `MonoMod.Core.Interop...Value does not fall within the expected range` / `Undefined resource string ID:0x80070057` | csproj の `<Publicize>` を `true` にするか、`Krafs.Publicizer` パッケージを外す |
-| publish だけ失敗する | `GodotPublish` の実行時に `DOTNET_ROOT` を dotnet のある場所に設定 |
+| publish だけ失敗する                                                                                               | `GodotPublish` の実行時に `DOTNET_ROOT` を dotnet のある場所に設定              |
 
 ## 次に読むもの
 

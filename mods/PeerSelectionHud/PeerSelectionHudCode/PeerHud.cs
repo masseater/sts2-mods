@@ -138,15 +138,17 @@ internal sealed class PeerHud
             runManager.MapSelectionSynchronizer.GetVote(player)));
     }
 
-    // 相手の入力状態がまだ届いていないと PeerInputSynchronizer は InvalidOperationException を投げる
+    // 相手の入力状態がまだ届いていないと PeerInputSynchronizer は InvalidOperationException を投げる。
+    // そのときはログに残し、画面には「不明」と出す (PeerStatusText.Describe が null を「不明」にする)
     private NetScreenType? ScreenOf(ulong playerId)
     {
         try
         {
             return runManager.InputSynchronizer.GetScreenType(playerId);
         }
-        catch (InvalidOperationException)
+        catch (InvalidOperationException e)
         {
+            MainFile.Log.Debug($"プレイヤー {playerId} の画面を取得できませんでした: {e.Message}");
             return null;
         }
     }
@@ -157,8 +159,9 @@ internal sealed class PeerHud
         {
             return runManager.InputSynchronizer.GetIsTargeting(playerId);
         }
-        catch (InvalidOperationException)
+        catch (InvalidOperationException e)
         {
+            MainFile.Log.Debug($"プレイヤー {playerId} の対象選択中かを取得できませんでした: {e.Message}");
             return false;
         }
     }

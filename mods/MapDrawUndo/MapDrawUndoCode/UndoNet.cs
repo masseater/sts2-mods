@@ -63,6 +63,7 @@ internal static class UndoNet
     {
         if (drawings is null || !GodotObject.IsInstanceValid(drawings))
         {
+            MainFile.Log.Warn($"マップ画面が無いので、プレイヤー {senderId} からの取り消しを反映できませんでした");
             return;
         }
 

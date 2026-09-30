@@ -2,20 +2,20 @@
 
 ## Directory layout
 
-* workshop.json -- The config describing the Steam workspace mod.
+- workshop.json -- The config describing the Steam workspace mod.
 
-* content       -- Where you should place the mod files to be uploaded to Steam Workshop.
-                   This should be at least a JSON file, and probably a PCK & DLL.
+- content -- Where you should place the mod files to be uploaded to Steam Workshop.
+  This should be at least a JSON file, and probably a PCK & DLL.
 
-* previews      -- Additional preview images, shown alongside image.png. Optional.
-                   Must be less than 1MB. Missing images are removed from the backend,
-                   keyed by filename.
-                   If this directory is not present, all previews will remain unchanged.
+- previews -- Additional preview images, shown alongside image.png. Optional.
+  Must be less than 1MB. Missing images are removed from the backend,
+  keyed by filename.
+  If this directory is not present, all previews will remain unchanged.
 
-* image.png     -- The image shown in the Steam Workshop. Required. Replace with your own!
-                   Must be less than 1MB.
+- image.png -- The image shown in the Steam Workshop. Required. Replace with your own!
+  Must be less than 1MB.
 
-* README.md     -- This readme document
+- README.md -- This readme document
 
 ## `workshop.json` Properties
 
@@ -27,10 +27,10 @@ Most properties can be substituted with `null` or removed from the JSON if you w
 {
   "title": "",                -- The title of your mod.
   "description": "",          -- The description.
-  "visibility": "private",    -- The visibility status of the mod. 
+  "visibility": "private",    -- The visibility status of the mod.
                                   Options include: "private", "public", "unlisted", "friends_only".
   "changeNote": "",           -- A note for describing the newest changes you've made to your users.
-  "tags": [],                 -- A list of tags to search for your mod by. 
+  "tags": [],                 -- A list of tags to search for your mod by.
                                  Note: the tag "Tools & APIs" is reserved for mods that function as tools or APIs.
   "dependencies": []          -- A list of mods that your mod depends on.
                                  These should be mod IDs (can be found in the workshop URL).

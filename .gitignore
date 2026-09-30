@@ -30,3 +30,4 @@ Thumbs.db
 *.import
 *.uid
 *.csproj.old
+node_modules/

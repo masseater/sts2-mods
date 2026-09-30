@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 静的検査をまとめて走らせる。コミット前 (.githooks/pre-commit)、make check、CI が使う。
+# 静的検査をまとめて走らせる。コミット前 (.vite-hooks/pre-commit)、vp run check、CI が使う。
 #
 #   1. マニフェスト (mods/<Mod>/<Mod>.json) の中身とフォルダ構成が合っているか
 #   2. 整形 (.editorconfig) … 全 Mod
@@ -102,7 +102,7 @@ done
 # ---- 4. シェルスクリプト ----
 step "シェルスクリプト"
 if command -v shellcheck >/dev/null; then
-  shellcheck scripts/*.sh .githooks/* || fail "shellcheck"
+  shellcheck scripts/*.sh .vite-hooks/pre-commit || fail "shellcheck"
 else
   echo "shellcheck が無いので省略 (Mac: brew install shellcheck)"
 fi

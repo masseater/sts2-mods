@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+# コミット前に全検査を走らせる。フックは bun install (prepare の vp config) で有効になる
+# 急ぎのときは git commit --no-verify で飛ばせる (CI では同じ検査が走る)
+vp run check

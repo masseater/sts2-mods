@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "cc-jev-teacher": {
+      "source": {
+        "source": "github",
+        "repo": "masseater/cc-jev-teacher"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "cc-jev-teacher@cc-jev-teacher": true
+  }
+}
