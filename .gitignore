@@ -25,3 +25,8 @@ mod-uploader.log
 # OS
 .DS_Store
 Thumbs.db
+
+# MegaDot が書き出し時に自動生成するファイル
+*.import
+*.uid
+*.csproj.old

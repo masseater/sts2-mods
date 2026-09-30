@@ -48,4 +48,4 @@ done
 
 version="$(grep -Eo '"version"[[:space:]]*:[[:space:]]*"[^"]*"' "$src/$mod.json" | sed -E 's/.*"([^"]*)"$/\1/')"
 echo "コピーしました ($version):"
-ls -1 "$dst" | sed 's/^/  /'
+for f in "$dst"/*; do echo "  $(basename "$f")"; done

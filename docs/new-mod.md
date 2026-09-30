@@ -1,22 +1,31 @@
 # 新しい Mod を追加する
 
-1 つのリポジトリで複数の Mod を管理できます。
-
 ```
-dotnet new install Alchyr.Sts2.Templates              # 初回のみ
-cd mods
-dotnet new alchyrsts2contentmod --ModAuthor masseater -o NewModName
-cd NewModName
-dotnet new sln -n NewModName --format sln
-dotnet sln NewModName.sln add NewModName.csproj
+make new MOD=NewModName        # = scripts/new-mod.sh NewModName
 ```
 
-- テンプレート: `alchyrsts2contentmod`(カード・レリック・ポーション)、`alchyrsts2charmod`(新キャラクター)、`alchyrsts2mod`(最小構成)
-- Mod 名にスペースとアンダースコアは使えない
+これで次のものができます。
 
-生成後に次の調整をします。
+- `mods/NewModName/`: csproj・マニフェスト・`NewModNameCode/MainFile.cs`(Harmony のパッチを全部当てるだけの入口)・.pck 書き出し用の `project.godot` と `export_presets.cfg`
+- `workshop/NewModName/`: アップローダ用ワークスペース(`workshop.json` の `title` と `description`、`image.png` は書き換える)
+- `sts2-mods.sln` への登録
 
-1. `NewModName/.gitignore` と `.gitattributes` を削除する(リポジトリ直下のものを使う)
-2. `NewModName/Directory.Build.props` を `mods/MyFirstMod/Directory.Build.props` と同じ内容にする(`local.props` を読むため)
-3. `export_presets.cfg` の `exclude_filter` がテンプレート名のままなら `NewModName.json` に直す
-4. `workshop/MyFirstMod` をコピーして `workshop/NewModName` を作り、`workshop.json` と `image.png` を書き換える(`mod_id.txt` はコピーしない)
+Mod 名は英字で始まる英数字だけ(スペースとアンダースコアは不可)。
+
+## 作ったあとに決めること
+
+| やりたいこと | すること |
+| --- | --- |
+| 画像やローカライズを入れる | `mods/NewModName/NewModName/` を作って入れ、`NewModName.json` の `has_pck` を `true` にする。`make publish` で .pck も出る |
+| ゲームの private メンバーを使う | csproj に `<Publicize>true</Publicize>`。`nameof` と直接アクセスで書けるようになる([development.md](development.md#harmony-パッチの書き方)) |
+| 仲間とプレイ内容が変わる Mod | `NewModName.json` の `affects_gameplay` を `true` にする |
+| ゲームの型を新しく使う | `build/Sts2Stubs/` にも同じシグネチャで足す(CI の型チェック用) |
+| スタブで型チェックできないほどゲームの型を使う | csproj に `<SupportsSts2Stubs>false</SupportsSts2Stubs>`(CI では整形だけになる) |
+
+共通で使いたいコードは `shared/` に置くと全 Mod にソースとして取り込まれます(名前空間 `Sts2Mods.Common`)。
+取り込みたくない Mod は csproj に `<UseSharedCode>false</UseSharedCode>`。
+
+## カードやレリックを足すコンテンツ Mod
+
+`mods/MyFirstMod` がテンプレート(Alchyr.Sts2.Templates の Content テンプレート)そのままのサンプルです。
+`Cards/`・`Relics/`・`Powers/` の基底クラスと、`MyFirstMod/localization/eng/*.json` の書き方を参考にしてください。

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# コミット前に scripts/check.sh を走らせる。有効化: make hooks (git config core.hooksPath .githooks)
+# 急ぎのときは git commit --no-verify で飛ばせる (CI では同じ検査が走る)
+set -euo pipefail
+exec "$(git rev-parse --show-toplevel)/scripts/check.sh"

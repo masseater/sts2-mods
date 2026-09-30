@@ -25,7 +25,7 @@
 - `GodotPath`: MegaDot の実行ファイル。引用符は付けない
 - `Sts2Path`: ゲームが `C:/Program Files (x86)/Steam/steamapps/common/Slay the Spire 2` 以外にある場合だけ設定
 
-ゲームの場所は Windows ではレジストリから自動検出も試みます(`mods/*/Sts2PathDiscovery.props`)。Mac の手順は [setup-mac.md](setup-mac.md) にまとめています。
+ゲームの場所は Windows ではレジストリから自動検出も試みます(`build/Sts2PathDiscovery.props`)。Mac の手順は [setup-mac.md](setup-mac.md) にまとめています。
 
 ## ビルドと確認
 
