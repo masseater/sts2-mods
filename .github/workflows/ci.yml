@@ -24,7 +24,7 @@ jobs:
     name: 整形・型チェック (スタブ)・アナライザ
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 9.0.x
@@ -46,7 +46,7 @@ jobs:
       # ゲームが使う MegaDot (Godot 4.5.1 の Mega Crit 版)。https://megadot.megacrit.com/api/ で一覧が見られる
       MEGADOT_VERSION: 4.5.1-m.14
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 9.0.x
