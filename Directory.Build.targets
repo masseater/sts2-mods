@@ -32,7 +32,7 @@
     <ItemGroup Condition="'$(IsSts2Mod)' == 'true' and '$(UseSts2Stubs)' == 'true'">
         <ProjectReference Include="$(RepoRoot)build/Sts2Stubs/Sts2Stubs.csproj" Private="false" />
         <!-- ゲームに同梱の 0Harmony.dll の代わり。コンパイル時だけ使う -->
-        <PackageReference Include="Lib.Harmony" Version="2.4.2" ExcludeAssets="runtime" PrivateAssets="All" />
+        <PackageReference Include="Lib.Harmony" Version="2.4.3" ExcludeAssets="runtime" PrivateAssets="All" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(IsSts2Mod)' == 'true' and '$(Publicize)' == 'true'">
