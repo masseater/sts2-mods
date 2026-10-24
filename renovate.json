@@ -1,4 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"]
+  "extends": ["config:recommended"],
+  "packageRules": [
+    {
+      "description": "Godot.NET.Sdk and GodotSharp must match the MegaDot (Godot 4.5.1) build the game ships",
+      "matchPackageNames": ["Godot.NET.Sdk", "GodotSharp"],
+      "allowedVersions": "4.5.1"
+    }
+  ]
 }
