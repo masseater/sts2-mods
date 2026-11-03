@@ -11,31 +11,6 @@
 | [PeerSelectionHud](mods/PeerSelectionHud/README.md) | マルチプレイで、仲間が今いる画面・カーソルを合わせているカード等・マップの投票先を画面左に表示する |
 | [MyFirstMod](mods/MyFirstMod)                       | カード・レリック・パワーを追加するサンプル(テンプレートのまま)                                     |
 
-## 構成
-
-```
-sts2-mods/
-  sts2-mods.sln              全 Mod を含むソリューション
-  Directory.Build.props      全プロジェクト共通の設定 (パス解決、言語設定、警告=エラー、アナライザ)
-  Directory.Build.targets    Mod 共通のビルド処理 (sts2.dll / BaseLib の参照、mods フォルダへのコピー、.pck 書き出し)
-  .editorconfig              コードスタイル・命名規則・アナライザの強さ
-  mods/<Mod>/                Mod プロジェクト。csproj は TargetFramework と Mod 固有の設定だけ
-    <Mod>.csproj
-    <Mod>.json               Mod マニフェスト
-    <Mod>Code/               C# コード
-    <Mod>/                   .pck に入るアセット (画像・ローカライズ。無い Mod もある)
-    project.godot, export_presets.cfg   .pck 書き出し用
-  shared/                    全 Mod に取り込む共通コード (ソースとして各 dll に入る)
-  build/
-    Sts2PathDiscovery.props  ゲームの場所を OS ごとに自動検出
-    Sts2Stubs/               sts2.dll の型を真似たスタブ。ゲームが無い CI での型チェック用
-  templates/mod/             scripts/new-mod.sh が使う雛形
-  workshop/<Mod>/            公式アップローダ用ワークスペース (workshop.json, image.png, content/)
-  scripts/                   build / check / export-pck / new-mod / stage
-  docs/                      セットアップ・開発・公開の手順
-  local.props.example        PC ごとのパス設定の見本 (local.props にコピーして使う)
-```
-
 ## クイックスタート
 
 ゲームと Steam が入っている PC で行います。詳細は [docs/setup.md](docs/setup.md)、Mac は [docs/setup-mac.md](docs/setup-mac.md)。
