@@ -1,5 +1,7 @@
 # sts2-mods
 
+このリポジトリは [masseater/masseater.dev の `apps/sts2-mods`](https://github.com/masseater/masseater.dev/tree/main/apps/sts2-mods) に移り、アーカイブされた。
+
 **Slay the Spire 2**(Steam AppID `2868840`、Godot/MegaDot + C# 製)向けの Mod をまとめて管理する monorepo です。
 初代 Slay the Spire(Java / ModTheSpire / BaseMod、AppID 646570)とは仕組みがまったく違うので、初代向けの情報は参考にしないでください。
 
